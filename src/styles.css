@@ -1,0 +1,176 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import "@fontsource/dm-serif-display/400.css";
+@import "@fontsource/ibm-plex-serif/400.css";
+@import "@fontsource/ibm-plex-serif/500.css";
+@import "@fontsource/ibm-plex-serif/700.css";
+@import "@fontsource/inter/400.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-olive-ink: #111111;
+  --color-linen-cream: #FAFAFA;
+  --color-buttery-peach: #FFFFFF;
+  --color-squeeze-bottle-green: #C8A96B;
+  --color-evoo-yellow-green: #EAEAEA;
+  --color-mustard-sun: #C8A96B;
+
+  --color-background: var(--color-linen-cream);
+  --color-foreground: var(--color-olive-ink);
+  --color-card: var(--color-linen-cream);
+  --color-card-foreground: var(--color-olive-ink);
+  --color-popover: var(--color-linen-cream);
+  --color-popover-foreground: var(--color-olive-ink);
+  --color-primary: var(--color-olive-ink);
+  --color-primary-foreground: var(--color-linen-cream);
+  --color-secondary: var(--color-buttery-peach);
+  --color-secondary-foreground: var(--color-olive-ink);
+  --color-muted: var(--color-buttery-peach);
+  --color-muted-foreground: #929292;
+  --color-accent: var(--color-mustard-sun);
+  --color-accent-foreground: var(--color-olive-ink);
+  --color-destructive: #b3261e;
+  --color-destructive-foreground: var(--color-linen-cream);
+  --color-border: var(--color-olive-ink);
+  --color-input: var(--color-olive-ink);
+  --color-ring: var(--color-olive-ink);
+
+  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-serif: "IBM Plex Serif", "Lora", Georgia, serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-2xl: 9999px;
+}
+
+:root {
+  --background: var(--color-linen-cream);
+  --foreground: var(--color-olive-ink);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-olive-ink);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-linen-cream);
+    color: var(--color-olive-ink);
+    font-family: var(--font-serif);
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-squeeze-bottle-green);
+    color: var(--color-olive-ink);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.031em;
+  line-height: 0.92;
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 8vw, 144px);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+@utility text-heading {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 86px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+
+@utility text-heading-sm {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@utility label-caps {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@utility ghost-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-olive-ink);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-olive-ink);
+  transition: gap 220ms ease, opacity 220ms ease;
+}
+
+@utility ghost-link-hover {
+  &:hover { gap: 20px; opacity: 0.7; }
+}
+
+@utility mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--color-linen-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+@utility mobile-menu-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@utility menu-link {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 8vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-olive-ink);
+  transition: opacity 220ms ease;
+}
+
+@utility hamburger-line {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--color-olive-ink);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+@utility touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
