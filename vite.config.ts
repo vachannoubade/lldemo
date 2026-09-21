@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force-enable nitro with the Vercel preset so Vercel can serve the SSR app.
+  // Without this, the build defaults to a Cloudflare worker format that Vercel can't run.
+  nitro: {
+    preset: "vercel",
+  },
 });
